@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Sites IA - Mistral</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Générateur de Sites avec Mistral AI</h1>
+            <p>Décrivez votre site et laissez l'IA le créer</p>
+        </header>
+
+        <div class="form-section">
+            <div class="input-group">
+                <label for="apiKey">Clé API Mistral</label>
+                <input type="password" id="apiKey" placeholder="Votre clé API">
+                <button onclick="saveApiKey()">Sauvegarder</button>
+            </div>
+
+            <div class="input-group">
+                <label for="description">Description de votre site</label>
+                <textarea id="description" rows="5" 
+                    placeholder="Exemple : Un site portfolio moderne avec un fond dégradé, une navbar fixe, une section héro avec ma photo, mes compétences en grille, et un formulaire de contact stylisé"></textarea>
+            </div>
+
+            <div class="options">
+                <select id="style">
+                    <option value="moderne">Moderne</option>
+                    <option value="minimaliste">Minimaliste</option>
+                    <option value="créatif">Créatif</option>
+                    <option value="corporate">Corporate</option>
+                </select>
+
+                <select id="framework">
+                    <option value="pur">HTML/CSS/JS pur</option>
+                    <option value="bootstrap">Avec Bootstrap</option>
+                    <option value="tailwind">Avec Tailwind</option>
+                </select>
+            </div>
+
+            <button onclick="generateSite()" id="generateBtn">
+                Générer le site ✨
+            </button>
+        </div>
+
+        <div class="preview-section" id="previewSection" style="display:none;">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('preview')">Aperçu</button>
+                <button class="tab" onclick="showTab('code')">Code</button>
+            </div>
+            
+            <div id="preview" class="tab-content active">
+                <iframe id="previewFrame"></iframe>
+            </div>
+            
+            <div id="code" class="tab-content" style="display:none;">
+                <pre><code id="generatedCode"></code></pre>
+                <button onclick="copyCode()">Copier le code</button>
+                <button onclick="downloadSite()">Télécharger</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
